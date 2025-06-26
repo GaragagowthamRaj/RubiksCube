@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .cube-controls {
+            flex: 1;
+            min-width: 300px;
+        }
+        .cube-display {
+            flex: 1;
+            min-width: 300px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .face {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-bottom: 10px;
+        }
+        .sticker {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #333;
+        }
+        .solution-steps {
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .step {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+    <script src="rubiks-cube.js"></script>
+</head>
+<body>
+    <h1>Rubik's Cube Solver</h1>
+    <div class="container">
+        <div class="cube-controls">
+            <h2>Cube Controls</h2>
+            <div>
+                <button id="scramble">Scramble Cube</button>
+                <button id="solve">Solve Cube</button>
+                <button id="reset">Reset Cube</button>
+            </div>
+            
+            <h3>Manual Rotations</h3>
+            <div>
+                <button class="rotate" data-face="F" data-direction="CW">Front CW</button>
+                <button class="rotate" data-face="F" data-direction="CCW">Front CCW</button>
+            </div>
+            <div>
+                <button class="rotate" data-face="B" data-direction="CW">Back CW</button>
+                <button class="rotate" data-face="B" data-direction="CCW">Back CCW</button>
+            </div>
+            <div>
+                <button class="rotate" data-face="U" data-direction="CW">Up CW</button>
+                <button class="rotate" data-face="U" data-direction="CCW">Up CCW</button>
+            </div>
+            <div>
+                <button class="rotate" data-face="D" data-direction="CW">Down CW</button>
+                <button class="rotate" data-face="D" data-direction="CCW">Down CCW</button>
+            </div>
+            <div>
+                <button class="rotate" data-face="L" data-direction="CW">Left CW</button>
+                <button class="rotate" data-face="L" data-direction="CCW">Left CCW</button>
+            </div>
+            <div>
+                <button class="rotate" data-face="R" data-direction="CW">Right CW</button>
+                <button class="rotate" data-face="R" data-direction="CCW">Right CCW</button>
+            </div>
+            
+            <h3>Current Cube State</h3>
+            <div id="cube-state"></div>
+        </div>
+        
+        <div class="cube-display">
+            <h2>Cube Visualization</h2>
+            <div id="cube-svg"></div>
+            
+            <h3>Solution Steps</h3>
+            <div class="solution-steps" id="solution-steps"></div>
+        </div>
+    </div>
+</body>
+</html>
